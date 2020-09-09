@@ -5,6 +5,8 @@ var wakeupTime = 9;
 var lunchTime = 12;
 var partyTime = 17;
 var napTime = lunchTime + 2;
+var isPartyTime = false;
+var partyButton = document.getElementById("partyTimeButton");
 
 var updateClock = function() {
     var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
@@ -79,3 +81,20 @@ var showCurrentTime = function()
 updateClock();
 var oneSecond = 1000;
 setInterval(updateClock, oneSecond);
+
+var partyEvent = function() {
+    if (isPartyTime === false) {
+        isPartyTime = true;
+        time = partyTime;
+        partyTimeButton.innerText = "Party Over :(";
+        partyTimeButton.style.backgroundColor = "#0A8DAB";
+    } else {
+        isPartyTime = false;
+        time = new Date().getHours();
+        partyTimeButton.innerText = "PARTY TIME!";
+        partyTimeButton.style.backgroundColor = "#222";
+    }
+
+};
+
+partyButton.addEventListener("click", partyEvent);
