@@ -1,12 +1,15 @@
 var time = new Date().getHours();
 var noon = 12;
 var evening = 18;
-var wakeupTime = 9;
+var wakeUpTime = 9;
 var lunchTime = 12;
 var partyTime = 17;
 var napTime = lunchTime + 2;
 var isPartyTime = false;
-var partyButton = document.getElementById("partyTimeButton");
+var partyTimeButton = document.getElementById("partyTimeButton");
+var wakeUpTimeSelector = document.getElementById("wakeUpTimeSelector");
+var lunchTimeSelector = document.getElementById("lunchTimeSelector");
+var napTimeSelector = document.getElementById("napTimeSelector");
 
 var updateClock = function() {
     var image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat5.jpg";
@@ -23,7 +26,7 @@ var updateClock = function() {
     } else if (time == lunchTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat2.jpg";
         messageText = "IZ NOM NOM NOM TIME!!";
-    } else if (time == wakeupTime) {
+    } else if (time == wakeUpTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg";
         messageText = "IZ TIME TO GETTUP.";
     } else if (time < noon) {
@@ -97,4 +100,21 @@ var partyEvent = function() {
 
 };
 
-partyButton.addEventListener("click", partyEvent);
+partyTimeButton.addEventListener("click", partyEvent);
+
+var wakeUpEvent = function() {
+    wakeUpTime = wakeUpTimeSelector.value;
+};
+
+var lunchEvent = function() {
+    lunchTime = lunchTimeSelector.value;
+};
+
+var napEvent = function() {
+    napTime = napTimeSelector.value;
+    
+};
+
+wakeUpTimeSelector.addEventListener("change", wakeUpEvent);
+lunchTimeSelector.addEventListener("change", lunchEvent);
+napTimeSelector.addEventListener("change", napEvent);
