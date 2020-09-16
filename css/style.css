@@ -4,22 +4,14 @@ body {
   background-color: #f16059;
   color: #222;
   font: 14px/26px 'Bungee', Helvetica, Arial, sans-serif;
-  margin: 0px;
-  padding: 0px;
   text-transform: uppercase;
 }
 
-/***** HEADER *****/
-
-header{
-  font-size: 24px;
+h1 {
+  font-size: 36px;
   line-height: 48px;
+  margin: 0;
 }
-
-/***** MAIN CONTENT *****/
-
-blockquote:before { content: '"'; }
-blockquote:after { content: '"'; }
 
 h1, h2, h3, h6 {
   font-family: 'Bungee Shade', cursive;
@@ -30,11 +22,27 @@ h4 {
   font-size: 21px;
 }
 
-h4 #clock {
-  display: block;
-  font-size: 36px;
-  padding: 5px 0px;
+/***** HEADER *****/
+
+header #clock {
+  background-color: #fff;
+  border-radius: 30px;
+  font-size: 34px;
+  padding: 30px;
 }
+
+header {
+  align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 40px 0 10px;
+}
+
+/***** MAIN CONTENT *****/
+
+blockquote:before { content: '"'; }
+blockquote:after { content: '"'; }
 
 blockquote {
   color: #fff;
@@ -82,4 +90,18 @@ blockquote {
 footer p {
   font-size: 12px;
   text-transform: uppercase;
+}
+
+/***** DESKTOP ****/
+
+@media (min-width: 1024px) {
+
+  /***** HEADER *****/
+
+  header {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    padding: 64px 100px;
+  }
+
 }
