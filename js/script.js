@@ -17,24 +17,30 @@ var updateClock = function() {
     var timeEventJS = document.getElementById("timeEvent");
     var lolcat = document.getElementById("lolcat");
 
-    if (time == partyTime){
+    if (time == partyTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat4.jpg";
         messageText = "IZ PARTEE TIME!!";
     } else if (time == napTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat3.jpg";
         messageText = "IZ NAP TIME...";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #906EFF, #6F42FF)";
     } else if (time == lunchTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat2.jpg";
         messageText = "IZ NOM NOM NOM TIME!!";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #FFBD74, #FF9A2A)";
     } else if (time == wakeUpTime) {
         image = "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/cat1.jpg";
         messageText = "IZ TIME TO GETTUP.";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #5491C1, #2F78B0)";
     } else if (time < noon) {
         messageText = "GOOD MONIN!!";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #f16059, #dd5048)";
     } else if (time > evening) {
         messageText = "GOOD EVENIN!!";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #906EFF, #6F42FF)";
     } else {
         messageText = "GOOD AFTENOON!!";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #FFB25B, #FF9A2A)";
     }
 
     timeEventJS.innerText = messageText;
@@ -90,12 +96,13 @@ var partyEvent = function() {
         isPartyTime = true;
         time = partyTime;
         partyTimeButton.innerText = "Party Over :(";
-        partyTimeButton.style.backgroundColor = "#0A8DAB";
+        partyTimeButton.style.backgroundColor = "#222";
+        document.body.style.backgroundImage = "linear-gradient(-45deg, #D61B1B, #AB0B0B, #FFD300, #FFDD39, #A7D84D,#8EC929)";
     } else {
         isPartyTime = false;
         time = new Date().getHours();
         partyTimeButton.innerText = "PARTY TIME!";
-        partyTimeButton.style.backgroundColor = "#222";
+        partyTimeButton.style.backgroundColor = "#B11414";
     }
 
 };
